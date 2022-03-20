@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "performance_logs",
+  "info": {
+    "singularName": "performance-log",
+    "pluralName": "performance-logs",
+    "displayName": "performanceLog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "datetime": {
+      "type": "datetime"
+    },
+    "performance": {
+      "type": "richtext"
+    },
+    "job": {
+      "type": "richtext"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "performance_logs"
+    },
+    "performance_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::performance-category.performance-category",
+      "inversedBy": "performance_logs"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "performance_logs"
+    }
+  }
+}

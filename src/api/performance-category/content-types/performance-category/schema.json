@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "performance_categories",
+  "info": {
+    "singularName": "performance-category",
+    "pluralName": "performance-categories",
+    "displayName": "performanceCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "customers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::customer.customer",
+      "inversedBy": "performance_categories"
+    },
+    "performance_logs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::performance-log.performance-log",
+      "mappedBy": "performance_category"
+    }
+  }
+}
